@@ -5,7 +5,7 @@ from flask_login import LoginManager
 import urllib.parse
 
 
-params = urllib.parse.quote_plus("Driver={ODBC Driver 17 for SQL Server};Server=tcp:ecoeventserver.database.windows.net,1433;Database=records;Uid=ecoevent-admin;Pwd=project@azure1;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+params = urllib.parse.quote_plus({{secrets.database_connection_string}})
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = '03156e6c886fe494fb59b013'
