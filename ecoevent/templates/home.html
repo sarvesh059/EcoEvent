@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block tile %}
+Home
+{% endblock %}
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1586400792375-d6b8f82db2e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+                 class="d-block w-100" height="500px" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1569163139394-de4e5f43e5ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                 class="d-block w-100" height="500px" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1569020806719-3d9478b51fc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                 type="jpg" class="d-block w-100" height="500px" width="500px" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                 class="d-block w-100" width="500px" height="500px" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="row mt-2">
+    <div class="col-6">
+        <div>
+            <h3 class="text-info" style="font-family: cursive">Project Motive</h3>
+            <p>Earth and the resources of earth make life possible on it. If we were to imagine our lives without these
+                resources, that would not be possible. As life cannot function without sunshine, air, vegetation, and
+                water. We can play our part in saving the environment by doing small tasks which may seem small but when
+             done together can create bigger impact. The motive of this project is to provide a platform to come together
+            and work together in harmony to multiply our efforts to save environment and leaving a better planet for future generation.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-6"></div>
+    <div class="col-6">
+        <div>
+            <h3 class="text-success" style="font-family: cursive">Project Description</h3>
+            <p>The project is a platform that let's users to create events like Cleanliness drive, Afforestation drives,
+            Awareness drives etc. and let's other users know about it so they can also take part in them. This project is
+             created under Future Ready Talent Virtual Internship organised by Microsoft.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center bg-dark text-white">
+    <div class="col-6">
+        <p class="text-muted" style="margin-bottom: -20px">Created by:</p>
+        <br>
+        Sarvesh
+        <p><a href="https://github.com/sarvesh059" style="margin-right: 10px"><i class="bi bi-github"></i></a> <a href="https://www.linkedin.com/in/sarvesh059/"><i class="bi bi-linkedin"></i></a></p>
+    </div>
+</div>
+{% endblock %}

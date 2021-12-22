@@ -1,0 +1,15 @@
+<div class="modal fade" id="detailModal-{{ event.id }}" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailModalLabel">{{ event.event_name }}</h5>
+      </div>
+      <div class="modal-body">
+        {{ event.event_description }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

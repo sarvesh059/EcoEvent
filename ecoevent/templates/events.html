@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Events
+{% endblock %}
+
+{% block content %}
+{% include 'includes/create_event.html' %}
+<div class="container">
+    <button type="button" class="btn my-3 text-white" style="background-color: forestgreen" data-bs-toggle="modal" data-bs-target="#createEventModal">
+        Create Event
+    </button>
+    <div class="row f-flex justify-content-between">
+        <div class="d-flex justify-content-around">
+            <h5>Scheduled events</h5>
+            <h5>My Events</h5>
+        </div>
+
+        <div class="col-6">
+<!-- events-->
+            {% for event in events%}
+            {% include 'includes/details.html' %}
+            <div class="card mt-2" style="border: 1px solid green">
+                <div class="card-body">
+                    <h4 class="card-title text-success">{{ event.event_name }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-geo-alt-fill"></i> {{ event.location }}</h6>
+                    <div class="card-text">
+                        <div><i class="bi bi-clock"></i> {{ event.event_time.strftime(format="%I:%M %p") }}</div>
+                        <div><i class="bi bi-calendar3"></i> {{ event.event_date.strftime(format="%d-%m-%Y") }}</div>
+                    </div>
+                    <div class="mt-2 d-flex justify-content-end">
+                        <button type="button" class="btn text-white" style="background-color: yellowgreen; margin-right: 5px" data-bs-toggle="modal" data-bs-target="#detailModal-{{ event.id }}">
+                            Details
+                        </button>
+                        {% if event in myEvents %}
+                        <button class="btn bg-success text-white"><i class="bi bi-check2"></i> Attending </button>
+                        {% else %}
+                        <form action="/attend_event" method="post">
+                            <input id="event" name="event" type="hidden" value="{{event.id}}">
+                            <button type="submit" class="btn bg-success text-white">Attend this Event</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-4">
+            {% for event in myEvents%}
+            {% include 'includes/details.html' %}
+            <div class="card mt-2" style=" background-color: paleturquoise">
+                <div class="card-body">
+                    <h4 class="card-title text-success">{{ event.event_name }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted"><i class="bi bi-geo-alt-fill"></i> {{ event.location }}</h6>
+                    <div class="card-text">
+                        <div><i class="bi bi-clock"></i> {{ event.event_time.strftime(format="%I:%M %p") }}</div>
+                        <div><i class="bi bi-calendar3"></i> {{ event.event_date.strftime(format="%d-%m-%Y") }}</div>
+                        {% if event.creater == current_user.id %}
+                        <div><i class="bi bi-person-check-fill"></i> Host</div>
+                        {% else %}
+                        <div><i class="bi bi-people-fill"></i> Attending</div>
+                        {% endif %}
+                    </div>
+                    <div class="mt-2 d-flex justify-content-end">
+                        {% if event.creater != current_user.id %}
+                        <form action="/cancel_event" method="post">
+                            <input id="cancelE" name="cancelE" type="hidden" value="{{event.id}}">
+                            <button type="submit" class="btn bg-danger text-white"><i class="bi bi-x-circle-fill"></i> Cancel</button>
+                        </form>
+                        {% endif %}
+                        <button type="button" class="btn text-white" style="background-color: yellowgreen; margin-right: 5px; margin-left: 3px" data-bs-toggle="modal" data-bs-target="#detailModal-{{ event.id }}">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

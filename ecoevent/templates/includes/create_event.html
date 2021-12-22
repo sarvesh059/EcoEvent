@@ -1,0 +1,58 @@
+<div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" id="modal-details">
+                    {{ event_form.hidden_tag() }}
+                    <div class="mb-3">
+                        <label for="event_name" class="form-label">Event Name</label>
+                        {{ event_form.name(class="form-control", id="event_name")}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Address</label>
+                        {{ event_form.location(class="form-control", id="location")}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="time" class="from-label">Time</label>
+                        {{ event_form.time(class="form-control", id="time", type="time")}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        {{ event_form.date(class="form-control", id="date", type="date")}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description</label>
+                        {{ event_form.description(class="form-control", id="desc")}}
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="modal-details">Create</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("date").setAttribute("min", today);
+</script>
